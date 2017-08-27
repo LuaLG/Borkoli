@@ -2,12 +2,26 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const settings = require('./settings.json');
 const fs = require('fs');
+const yt_api_key = settings.yt_api_key;
 const moment = require('moment');
 require('./util/eventLoader')(bot);
+
+ 
+
+
 
 const log = msg => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${msg}`);
 };
+
+var config = JSON.parse(fs.readFileSync('./settings.json', 'utf-8'));
+
+
+
+
+var guilds = {};
+
+
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -52,4 +66,5 @@ bot.elevation = msg => {
   return permlvl;
 };
 
-bot.login(settings.token);
+
+bot.login("MzUxMjIxNzU2NzQ2Mzk5NzQ3.DIPcQw.lPUimhAHOn1sc-EIHHDgccSc59M");
